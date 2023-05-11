@@ -8,6 +8,7 @@ TagManager:
   - LevelD
   - Metroidvania Obj
   - Artefacto Lugar
+  - Interactable
   layers:
   - Default
   - TransparentFX
