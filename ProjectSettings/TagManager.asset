@@ -8,7 +8,11 @@ TagManager:
   - LevelD
   - Metroidvania Obj
   - Artefacto Lugar
+<<<<<<< Updated upstream
   - Interactable
+=======
+  - Waypoints
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

@@ -159,6 +159,19 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            AttackFist();
+        }
+
+        private void AttackFist()
+        {
+            if(_input.fistReady && Grounded && !_input.sprint)
+            {
+                _animator.SetBool("FistReady", _input.fistReady);
+            }
+            else
+            {
+                _animator.SetBool("FistReady", false);
+            }
         }
 
         private void LateUpdate()

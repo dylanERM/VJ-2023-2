@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool fistReady;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -34,15 +35,21 @@ namespace StarterAssets
 			}
 		}
 
-		public void OnJump(InputValue value)
+		/*public void OnJump(InputValue value)
 		{
 			JumpInput(value.isPressed);
 		}
+		*/
 
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnFistReady(InputValue value)
+        {
+			fistReady = value.isPressed;
+        }
 #endif
 
 
