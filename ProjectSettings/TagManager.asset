@@ -3,16 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - CinemachineTarget
-  - LevelD
-  - Metroidvania Obj
-  - Artefacto Lugar
-<<<<<<< Updated upstream
-  - Interactable
-=======
-  - Waypoints
->>>>>>> Stashed changes
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -22,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - Character
-  - Ground
+  - 
+  - 
   - 
   - 
   - 
