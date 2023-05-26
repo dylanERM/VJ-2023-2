@@ -15,6 +15,10 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
+
+        [Tooltip("Health of Player")]
+        public int Health = 100;
+
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
 
@@ -31,6 +35,15 @@ namespace StarterAssets
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
+        [Header("Player Attacking")]
+        [Tooltip("If the character is attacking or not.")]
+        public bool Attacking = true;
+
+        [Tooltip("Time required to pass before being able to attack again. Set to 0f to instantly attack again")]
+        [SerializeField]
+        public float AttackTimeout = 0.5f;
+
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -89,6 +102,7 @@ namespace StarterAssets
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
+        private float _attackTimeoutDelta;
         private float _fallTimeoutDelta;
 
         // animation IDs
@@ -97,6 +111,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -149,6 +164,7 @@ namespace StarterAssets
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
+            _attackTimeoutDelta = AttackTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
 
@@ -160,6 +176,8 @@ namespace StarterAssets
             GroundedCheck();
             Move();
             AttackFist();
+            ReadySword();
+            AttackSword();
         }
 
         private void AttackFist()
@@ -171,6 +189,23 @@ namespace StarterAssets
             else
             {
                 _animator.SetBool("FistReady", false);
+            }
+        }
+
+        private void ReadySword()
+        {
+            _animator.SetBool("DrawW", _input.drawSword);
+        }
+
+        private void AttackSword()
+        {
+            if (_input.attack)
+            {
+                _animator.SetTrigger("_attack");
+            }
+            else
+            {
+                _animator.ResetTrigger("_attack");
             }
         }
 

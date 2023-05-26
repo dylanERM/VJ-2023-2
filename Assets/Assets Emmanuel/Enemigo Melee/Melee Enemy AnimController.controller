@@ -177,7 +177,7 @@ AnimatorStateMachine:
     m_Position: {x: -60, y: -70, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 7382961336269669365}
-    m_Position: {x: 270, y: -80, z: 0}
+    m_Position: {x: 300, y: -80, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions:
   - {fileID: -1406501174471626475}
@@ -310,7 +310,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemigo Melee AnimController
+  m_Name: Melee Enemy AnimController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: isPatrolling
@@ -318,31 +318,31 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isChasing
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isAttacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: die
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: damaged
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer

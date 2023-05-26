@@ -56,6 +56,33 @@
                     "id": "b180ae67-40ae-40a9-86b2-8ad4bff0f4da",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Press(pressPoint=1E-13,behavior=2)",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DrawSword",
+                    "type": "Button",
+                    "id": "1ed78e1a-3267-47db-b6d5-043319ae52a0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "DrawSpear",
+                    "type": "Button",
+                    "id": "72a46f4e-061f-461d-942b-55785c32f3eb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Gun",
+                    "type": "Button",
+                    "id": "016a7871-3c6d-4cdc-b408-63800219090c",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": "Press",
                     "initialStateCheck": false
                 }
@@ -263,9 +290,9 @@
                     "name": "",
                     "id": "f4d514ea-445d-4eda-a3a7-1d6a3b94a139",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Tap",
+                    "interactions": "Tap(duration=0.001,pressPoint=1E-06)",
                     "processors": "",
-                    "groups": "",
+                    "groups": "KeyboardMouse",
                     "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -274,10 +301,54 @@
                     "name": "",
                     "id": "865dcffd-6501-4458-a999-5512f10767af",
                     "path": "<Gamepad>/buttonWest",
-                    "interactions": "Tap",
+                    "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "63b2644d-239b-4580-aa07-ee358683979f",
+                    "path": "<Keyboard>/r",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "DrawSword",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c5e206fa-1388-4906-8dfd-f148da9298f7",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DrawSword",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "416e4601-64d4-4644-bc66-03d48159d94c",
+                    "path": "<Keyboard>/r",
+                    "interactions": "Tap",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "DrawSpear",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "2585ad9a-92c6-45ef-b37b-aa403320ceb9",
+                    "path": "<Keyboard>/z",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Gun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
