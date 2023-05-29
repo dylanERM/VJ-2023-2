@@ -38,12 +38,11 @@ namespace StarterAssets
 
         [Header("Player Attacking")]
         [Tooltip("If the character is attacking or not.")]
-        public bool Attacking = true;
+        public bool isAttacking;
 
-        [Tooltip("Time required to pass before being able to attack again. Set to 0f to instantly attack again")]
-        [SerializeField]
-        public float AttackTimeout = 0.5f;
-
+        [Header("Audio Death")]
+        public AudioClip DeathAudioClip;
+        [Range(0, 1)] public float DeathAudioVolume = 0.5f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -87,6 +86,12 @@ namespace StarterAssets
 
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
+
+
+
+        public GameOverScript GameOverScript;
+
+
 
         // cinemachine
         private float _cinemachineTargetYaw;
@@ -164,7 +169,6 @@ namespace StarterAssets
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
-            _attackTimeoutDelta = AttackTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
 
@@ -175,21 +179,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
-            AttackFist();
             ReadySword();
             AttackSword();
-        }
-
-        private void AttackFist()
-        {
-            if(_input.fistReady && Grounded && !_input.sprint)
-            {
-                _animator.SetBool("FistReady", _input.fistReady);
-            }
-            else
-            {
-                _animator.SetBool("FistReady", false);
-            }
         }
 
         private void ReadySword()
@@ -202,11 +193,34 @@ namespace StarterAssets
             if (_input.attack)
             {
                 _animator.SetTrigger("_attack");
+                isAttacking = true;
             }
             else
             {
                 _animator.ResetTrigger("_attack");
+                isAttacking = false;
             }
+        }
+
+        public void takeDamage(int amount)
+        {
+            Health -= amount;
+            if (Health <= 0)
+            {
+                _animator.SetTrigger("ded");
+                GetComponent<Collider>().enabled = false;
+                //AudioSource.PlayClipAtPoint(DeathAudioClip, transform.position, DeathAudioVolume);
+            }
+            else
+            {
+                _animator.SetTrigger("damaged");
+            }
+        }
+
+        public void GameOver()
+        {
+            Time.timeScale = 0f;
+            //Destroy(gameObject);
         }
 
         private void LateUpdate()

@@ -37,4 +37,14 @@ public class EquipmentSystem : MonoBehaviour
     {
         Destroy(currentWeaponInHand);
     }
+
+    public void StartAttack()
+    {
+        currentWeaponInHand.GetComponent<PlayerWeapon>().StartAttack();
+    }
+
+    public void EndAttack()
+    {
+        currentWeaponInHand.GetComponent<PlayerWeapon>().EndAttack();
+    }
 }

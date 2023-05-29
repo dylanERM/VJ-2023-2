@@ -42,21 +42,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "FistReady",
-                    "type": "Button",
-                    "id": "7117fb0b-9316-4430-a9e0-0d3e5cb9a32f",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Attack",
                     "type": "Button",
                     "id": "b180ae67-40ae-40a9-86b2-8ad4bff0f4da",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press(pressPoint=1E-13,behavior=2)",
+                    "interactions": "Press(pressPoint=1E-07,behavior=2)",
                     "initialStateCheck": false
                 },
                 {
@@ -266,31 +257,9 @@
                 },
                 {
                     "name": "",
-                    "id": "83475b27-4907-4eb6-8a29-f7a5cc75338c",
-                    "path": "<Keyboard>/f",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "FistReady",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f7219b39-733f-404d-bad1-3dcd9729f492",
-                    "path": "<Gamepad>/dpad/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "FistReady",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "f4d514ea-445d-4eda-a3a7-1d6a3b94a139",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "Tap(duration=0.001,pressPoint=1E-06)",
+                    "interactions": "Tap(duration=1E-07,pressPoint=1E-13)",
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "Attack",
