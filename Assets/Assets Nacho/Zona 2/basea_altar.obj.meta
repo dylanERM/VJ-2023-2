@@ -3,7 +3,29 @@ guid: e968dfa029d464a498f45a6627a8c0a7
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FernB_Plane.040_StoneMat
+    second: {fileID: 2100000, guid: cf54327ce1c909340a47929fc1908024, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: FernB_Plane.040_plantaMat
+    second: {fileID: -9117483709511198939, guid: 9e146d9c6edb7794681208d9f38c275f,
+      type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: cf54327ce1c909340a47929fc1908024, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: planta
+    second: {fileID: 3055808038450636745, guid: 2c832d7906f113749a2a730fc2966f7f,
+      type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

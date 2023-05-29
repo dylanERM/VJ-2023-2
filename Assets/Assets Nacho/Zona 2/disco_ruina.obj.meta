@@ -3,7 +3,12 @@ guid: e7af26e8b4f86cd48bb8680be2208ec3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsid
+    second: {fileID: 2100000, guid: cf54327ce1c909340a47929fc1908024, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

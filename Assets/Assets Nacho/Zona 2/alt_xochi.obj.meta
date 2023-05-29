@@ -3,7 +3,17 @@ guid: ca4d08682d1bc434aa2468cc7e5d224c
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: energy
+    second: {fileID: 2100000, guid: ddcfbd24f15bae3468e7e72abe206306, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: obsid
+    second: {fileID: 2100000, guid: de45aa50d51ac804394f8e55a6fa742f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -11,8 +11,7 @@
                     "id": "6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
+                    "interactions": ""
                 },
                 {
                     "name": "Look",
@@ -20,8 +19,7 @@
                     "id": "2690c379-f54d-45be-a724-414123833eb4",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
+                    "interactions": ""
                 },
                 {
                     "name": "Jump",
@@ -29,8 +27,7 @@
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
+                    "interactions": ""
                 },
                 {
                     "name": "Sprint",
@@ -38,44 +35,7 @@
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Attack",
-                    "type": "Button",
-                    "id": "b180ae67-40ae-40a9-86b2-8ad4bff0f4da",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press(pressPoint=1E-07,behavior=2)",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DrawSword",
-                    "type": "Button",
-                    "id": "1ed78e1a-3267-47db-b6d5-043319ae52a0",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "DrawSpear",
-                    "type": "Button",
-                    "id": "72a46f4e-061f-461d-942b-55785c32f3eb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Gun",
-                    "type": "Button",
-                    "id": "016a7871-3c6d-4cdc-b408-63800219090c",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -252,72 +212,6 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Sprint",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f4d514ea-445d-4eda-a3a7-1d6a3b94a139",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Tap(duration=1E-07,pressPoint=1E-13)",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "865dcffd-6501-4458-a999-5512f10767af",
-                    "path": "<Gamepad>/buttonWest",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Attack",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "63b2644d-239b-4580-aa07-ee358683979f",
-                    "path": "<Keyboard>/r",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "DrawSword",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c5e206fa-1388-4906-8dfd-f148da9298f7",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "DrawSword",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "416e4601-64d4-4644-bc66-03d48159d94c",
-                    "path": "<Keyboard>/r",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "DrawSpear",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "2585ad9a-92c6-45ef-b37b-aa403320ceb9",
-                    "path": "<Keyboard>/z",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Gun",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
