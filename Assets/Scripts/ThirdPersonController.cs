@@ -19,6 +19,9 @@ namespace StarterAssets
         [Tooltip("Health of Player")]
         public int Health = 100;
 
+        [Tooltip("Healthbar of Player")]
+        public HealthBar healthBar;
+
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
 
@@ -170,6 +173,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+            
+            healthBar.setMaxHealth(Health);
         }
 
         private void Update()
@@ -205,6 +210,7 @@ namespace StarterAssets
         public void takeDamage(int amount)
         {
             Health -= amount;
+            healthBar.setHealth(Health);
             if (Health <= 0)
             {
                 _animator.SetTrigger("ded");
