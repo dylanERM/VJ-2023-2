@@ -18,7 +18,7 @@ public class TextOnTrigger : MonoBehaviour
     IEnumerator waiter()
     {
     
-    yield return new WaitForSeconds(4);
+    yield return new WaitForSeconds(5);
     //textObject.SetActive(false);
     Destroy(textObject);
     }
