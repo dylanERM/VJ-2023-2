@@ -697,6 +697,7 @@ GameObject:
   - component: {fileID: 734641666397069118}
   - component: {fileID: 404604842557737250}
   - component: {fileID: 7998173789762535393}
+  - component: {fileID: 5407004902233154374}
   m_Layer: 0
   m_Name: RangeEnemy
   m_TagString: Untagged
@@ -770,6 +771,19 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!65 &5407004902233154374
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2348039395813530993}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.38604656, y: 1.9332004, z: 0.32209975}
+  m_Center: {x: -0.0042992234, y: 0.9783852, z: 0.027758917}
 --- !u!1 &2352858809677835976
 GameObject:
   m_ObjectHideFlags: 0
