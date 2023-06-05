@@ -13,17 +13,18 @@ public class ManejadorTutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {  
-
-        avisos[index].SetActive(true);
-           
-
+        if (index < avisos.Length){
+            avisos[index].SetActive(true);
+        }
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
             index++;
-            avisos[index-1].SetActive(false);
-            if(index == avisos.Length){
-                Destroy(caja);
+            if(index != avisos.Length ){
+                avisos[index-1].SetActive(false);
+                
+            } else {
+                 Destroy(caja);
             }
         }
         
