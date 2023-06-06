@@ -226,6 +226,7 @@ namespace StarterAssets
         public void GameOver()
         {
             Time.timeScale = 0f;
+            GameOverScript.GameOverScreen();
             //Destroy(gameObject);
         }
 
