@@ -10,7 +10,8 @@ TagManager:
   - Metroidvania Obj
   - Artefacto Lugar
   - Camp2
-  - Enemy
+  - R_Enemy
+  - M_Enemy
   layers:
   - Default
   - TransparentFX

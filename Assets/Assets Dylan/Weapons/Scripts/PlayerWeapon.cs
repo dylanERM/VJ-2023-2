@@ -14,9 +14,13 @@ public class PlayerWeapon : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Enemy" && this.isAttacking)
+        if (other.tag == "M_Enemy" && this.isAttacking)
         {
             other.GetComponent<MeleeEnemy>().takeDamage(damageAmount);
+        }
+        if (other.tag == "R_Enemy" && this.isAttacking)
+        {
+            other.GetComponent<RangedEnemy>().takeDamage(damageAmount);
         }
 
     }
