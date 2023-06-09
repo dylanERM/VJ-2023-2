@@ -13,5 +13,9 @@ public class Bullet : MonoBehaviour
             other.GetComponent<StarterAssets.ThirdPersonController>().takeDamage(damageAmount);
             Destroy(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }

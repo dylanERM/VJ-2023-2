@@ -15,6 +15,7 @@ namespace StarterAssets
 		public bool fistReady;
 		public bool drawSword;
 		public bool attack;
+		public bool swapWeapon;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -31,7 +32,7 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
+			if (cursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
 			}
@@ -49,9 +50,9 @@ namespace StarterAssets
 		}
 
 		public void OnFistReady(InputValue value)
-        {
+		{
 			fistReady = value.isPressed;
-        }
+		}
 
 		public void OnDrawSword(InputValue value)
 		{
@@ -59,8 +60,13 @@ namespace StarterAssets
 		}
 
 		public void OnAttack(InputValue value)
-        {
+		{
 			attack = value.isPressed;
+		}
+
+		public void OnSwapWeapon(InputValue value)
+        {
+			swapWeapon = value.isPressed;
         }
 #endif
 

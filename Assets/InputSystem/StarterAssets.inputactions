@@ -60,21 +60,12 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "DrawSpear",
-                    "type": "Button",
-                    "id": "72a46f4e-061f-461d-942b-55785c32f3eb",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Gun",
+                    "name": "SwapWeapon",
                     "type": "Button",
                     "id": "016a7871-3c6d-4cdc-b408-63800219090c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press",
+                    "interactions": "Press(pressPoint=1E-07,behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -301,23 +292,12 @@
                 },
                 {
                     "name": "",
-                    "id": "416e4601-64d4-4644-bc66-03d48159d94c",
-                    "path": "<Keyboard>/r",
-                    "interactions": "Tap",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "DrawSpear",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "2585ad9a-92c6-45ef-b37b-aa403320ceb9",
-                    "path": "<Keyboard>/z",
-                    "interactions": "Press",
+                    "path": "<Keyboard>/e",
+                    "interactions": "Tap(duration=1E-07,pressPoint=1E-13)",
                     "processors": "",
                     "groups": "KeyboardMouse",
-                    "action": "Gun",
+                    "action": "SwapWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

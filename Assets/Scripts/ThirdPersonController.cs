@@ -186,6 +186,8 @@ namespace StarterAssets
             Move();
             ReadySword();
             AttackSword();
+            CheckWeapon();
+            SwapW();
         }
 
         private void ReadySword()
@@ -193,17 +195,31 @@ namespace StarterAssets
             _animator.SetBool("DrawW", _input.drawSword);
         }
 
+        public bool _hasSword;
+        public bool orderswap;
+        private void CheckWeapon()
+        {
+            if(this.GetComponent<EquipmentSystem>().currentWeapon == this.GetComponent<EquipmentSystem>().weapon_1)
+            {
+                _hasSword = true;
+            }
+            else
+            {
+                _hasSword = false;
+            }
+        }
+
         private void AttackSword()
         {
             if (_input.attack)
             {
                 _animator.SetTrigger("_attack");
-                isAttacking = true;
+                _animator.SetBool("hasSword", _hasSword);
             }
             else
             {
                 _animator.ResetTrigger("_attack");
-                isAttacking = false;
+                _animator.SetBool("hasSword", _hasSword);
             }
         }
 
@@ -221,6 +237,23 @@ namespace StarterAssets
             {
                 _animator.SetTrigger("damaged");
             }
+        }
+
+        private void SwapW()
+        {
+            if (_input.swapWeapon)
+            {
+                _animator.SetTrigger("swap");
+            }
+            else
+            {
+                _animator.ResetTrigger("swap");
+            }
+        }
+
+        private void SwapEnd()
+        {
+            _animator.ResetTrigger("swap");
         }
 
         public void GameOver()
