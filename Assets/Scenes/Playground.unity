@@ -5381,14 +5381,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120314638374576541, guid: 88cde252a67236a4eb9660095f216908,
         type: 3}
+      propertyPath: dashTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120314638374576541, guid: 88cde252a67236a4eb9660095f216908,
+        type: 3}
       propertyPath: Attacking
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120314638374576541, guid: 88cde252a67236a4eb9660095f216908,
+        type: 3}
+      propertyPath: dashSpeed
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 6120314638374576541, guid: 88cde252a67236a4eb9660095f216908,
         type: 3}
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 227034805}
+    - target: {fileID: 6120314638374576541, guid: 88cde252a67236a4eb9660095f216908,
+        type: 3}
+      propertyPath: dashTimeOut
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6120314638374576541, guid: 88cde252a67236a4eb9660095f216908,
         type: 3}
       propertyPath: GameOverScript

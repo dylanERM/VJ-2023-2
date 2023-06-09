@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
@@ -110,7 +111,7 @@ namespace StarterAssets
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
-        private float _attackTimeoutDelta;
+        private float _dashTimeoutDelta;
         private float _fallTimeoutDelta;
 
         // animation IDs
@@ -154,7 +155,6 @@ namespace StarterAssets
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
         }
-
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
@@ -172,6 +172,7 @@ namespace StarterAssets
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
+            _dashTimeoutDelta = dashTimeOut;
             _fallTimeoutDelta = FallTimeout;
             
             healthBar.setMaxHealth(Health);
@@ -188,6 +189,7 @@ namespace StarterAssets
             AttackSword();
             CheckWeapon();
             SwapW();
+            Dash();
         }
 
         private void ReadySword()
@@ -195,8 +197,7 @@ namespace StarterAssets
             _animator.SetBool("DrawW", _input.drawSword);
         }
 
-        public bool _hasSword;
-        public bool orderswap;
+        bool _hasSword;
         private void CheckWeapon()
         {
             if(this.GetComponent<EquipmentSystem>().currentWeapon == this.GetComponent<EquipmentSystem>().weapon_1)
@@ -239,6 +240,28 @@ namespace StarterAssets
             }
         }
 
+        float dashSpeed = 65f;
+        float dashTimeOut = 3f;
+
+
+        private void Dash()
+        {
+            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            if (!_hasSword)
+            {
+                if (_input.dash && _dashTimeoutDelta <= 0.0f)
+                {
+                    _controller.Move(targetDirection.normalized * (dashSpeed * Time.deltaTime));
+                    _dashTimeoutDelta = dashTimeOut;
+                }
+                if (_dashTimeoutDelta >= 0.0f)
+                {
+                    _dashTimeoutDelta -= Time.deltaTime;
+                }
+                
+            }
+        }
+
         private void SwapW()
         {
             if (_input.swapWeapon)
@@ -249,11 +272,6 @@ namespace StarterAssets
             {
                 _animator.ResetTrigger("swap");
             }
-        }
-
-        private void SwapEnd()
-        {
-            _animator.ResetTrigger("swap");
         }
 
         public void GameOver()

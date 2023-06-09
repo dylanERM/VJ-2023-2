@@ -16,6 +16,7 @@ namespace StarterAssets
 		public bool drawSword;
 		public bool attack;
 		public bool swapWeapon;
+		public bool dash;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -67,6 +68,16 @@ namespace StarterAssets
 		public void OnSwapWeapon(InputValue value)
         {
 			swapWeapon = value.isPressed;
+        }
+
+		public void OnDash(InputValue value)
+        {
+			DashInput(value.isPressed);
+        }
+
+		public void DashInput(bool newDashState)
+        {
+			dash = newDashState;
         }
 #endif
 

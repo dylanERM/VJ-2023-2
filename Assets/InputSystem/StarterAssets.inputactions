@@ -67,6 +67,15 @@
                     "processors": "",
                     "interactions": "Press(pressPoint=1E-07,behavior=2)",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "a5fdc428-eab1-49de-894a-c9275ca80f8e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(pressPoint=0.2,behavior=2)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -298,6 +307,17 @@
                     "processors": "",
                     "groups": "KeyboardMouse",
                     "action": "SwapWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d9f43ee-937f-4555-838b-3587e810e81e",
+                    "path": "<Keyboard>/f",
+                    "interactions": "Tap(duration=1E-13,pressPoint=0.5)",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Dash",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
