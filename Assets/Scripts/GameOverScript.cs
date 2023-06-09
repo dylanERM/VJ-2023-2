@@ -8,6 +8,7 @@ public class GameOverScript : MonoBehaviour
 {
     public GameObject pantalla;
 
+
     public void GameOverScreen(){
         pantalla.SetActive(true);
     }
@@ -15,5 +16,6 @@ public class GameOverScript : MonoBehaviour
     public void RestartButton()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
     }
 }
