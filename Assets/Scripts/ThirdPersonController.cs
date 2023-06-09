@@ -2,6 +2,7 @@
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -277,7 +278,8 @@ namespace StarterAssets
         public void GameOver()
         {
             Time.timeScale = 0f;
-            GameOverScript.GameOverScreen();
+            SceneManager.LoadScene("GameOver");
+            //GameOverScript.GameOverScreen();
             //Destroy(gameObject);
         }
 
