@@ -5,8 +5,9 @@ using UnityEngine;
 public class PressAnyButton : MonoBehaviour
 {
     public GameObject opciones;
-    public GameObject pressEnter;
 
+    public GameObject pressEnter;
+    
     void Update()
     {
         if (Input.anyKey)
@@ -15,4 +16,5 @@ public class PressAnyButton : MonoBehaviour
             opciones.SetActive(true);
         }
     }
+
 }
