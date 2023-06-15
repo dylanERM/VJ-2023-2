@@ -241,6 +241,12 @@ namespace StarterAssets
             }
         }
 
+        public void healPlayer()
+        {
+            Health = 100;
+            healthBar.setHealth(Health);
+        }
+
         float dashSpeed = 65f;
         float dashTimeOut = 3f;
 

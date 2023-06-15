@@ -7,11 +7,13 @@ public class TextOnTrigger : MonoBehaviour
 {
     public GameObject textObject;
 
+    private bool isTriggered = false;
 
     void OnTriggerEnter(Collider other){
-        if(other.CompareTag("Player")){
+        if(other.CompareTag("Player") && !isTriggered){
             textObject.SetActive(true);
             StartCoroutine(waiter());
+            isTriggered = true;
         }
     }
 
@@ -19,7 +21,7 @@ public class TextOnTrigger : MonoBehaviour
     {
     
     yield return new WaitForSeconds(5);
-    //textObject.SetActive(false);
-    Destroy(textObject);
+    textObject.SetActive(false);
+    //sDestroy(textObject);
     }
 }
