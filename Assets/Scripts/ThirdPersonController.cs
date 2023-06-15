@@ -176,7 +176,8 @@ namespace StarterAssets
             _dashTimeoutDelta = dashTimeOut;
             _fallTimeoutDelta = FallTimeout;
             
-            healthBar.setMaxHealth(Health);
+            healthBar.setMaxHealth(100);
+            healthBar.setHealth(Health);
         }
 
         private void Update()

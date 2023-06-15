@@ -37,7 +37,6 @@ public class HealthBar : MonoBehaviour
 
    private void Update() {
         colorBarra();
-        
    }
 
    private IEnumerator Decrementar(int health)
