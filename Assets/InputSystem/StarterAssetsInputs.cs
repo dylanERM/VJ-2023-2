@@ -12,6 +12,11 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool fistReady;
+		public bool drawSword;
+		public bool attack;
+		public bool swapWeapon;
+		public bool dash;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -28,21 +33,52 @@ namespace StarterAssets
 
 		public void OnLook(InputValue value)
 		{
-			if(cursorInputForLook)
+			if (cursorInputForLook)
 			{
 				LookInput(value.Get<Vector2>());
 			}
 		}
 
-		public void OnJump(InputValue value)
+		/*public void OnJump(InputValue value)
 		{
 			JumpInput(value.isPressed);
 		}
+		*/
 
 		public void OnSprint(InputValue value)
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnFistReady(InputValue value)
+		{
+			fistReady = value.isPressed;
+		}
+
+		public void OnDrawSword(InputValue value)
+		{
+			drawSword = value.isPressed;
+		}
+
+		public void OnAttack(InputValue value)
+		{
+			attack = value.isPressed;
+		}
+
+		public void OnSwapWeapon(InputValue value)
+        {
+			swapWeapon = value.isPressed;
+        }
+
+		public void OnDash(InputValue value)
+        {
+			DashInput(value.isPressed);
+        }
+
+		public void DashInput(bool newDashState)
+        {
+			dash = newDashState;
+        }
 #endif
 
 

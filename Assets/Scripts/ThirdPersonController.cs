@@ -1,6 +1,8 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 #endif
 
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
@@ -15,6 +17,13 @@ namespace StarterAssets
     public class ThirdPersonController : MonoBehaviour
     {
         [Header("Player")]
+
+        [Tooltip("Health of Player")]
+        public int Health = 100;
+
+        [Tooltip("Healthbar of Player")]
+        public HealthBar healthBar;
+
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
 
@@ -31,6 +40,14 @@ namespace StarterAssets
         public AudioClip LandingAudioClip;
         public AudioClip[] FootstepAudioClips;
         [Range(0, 1)] public float FootstepAudioVolume = 0.5f;
+
+        [Header("Player Attacking")]
+        [Tooltip("If the character is attacking or not.")]
+        public bool isAttacking;
+
+        [Header("Audio Death")]
+        public AudioClip DeathAudioClip;
+        [Range(0, 1)] public float DeathAudioVolume = 0.5f;
 
         [Space(10)]
         [Tooltip("The height the player can jump")]
@@ -75,6 +92,12 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+
+
+        public GameOverScript GameOverScript;
+
+
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -89,6 +112,7 @@ namespace StarterAssets
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
+        private float _dashTimeoutDelta;
         private float _fallTimeoutDelta;
 
         // animation IDs
@@ -97,6 +121,7 @@ namespace StarterAssets
         private int _animIDJump;
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
+
 
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
         private PlayerInput _playerInput;
@@ -131,7 +156,6 @@ namespace StarterAssets
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
             }
         }
-
         private void Start()
         {
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
@@ -149,7 +173,11 @@ namespace StarterAssets
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
+            _dashTimeoutDelta = dashTimeOut;
             _fallTimeoutDelta = FallTimeout;
+            
+            healthBar.setMaxHealth(100);
+            healthBar.setHealth(Health);
         }
 
         private void Update()
@@ -159,6 +187,107 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            ReadySword();
+            AttackSword();
+            CheckWeapon();
+            SwapW();
+            Dash();
+        }
+
+        private void ReadySword()
+        {
+            _animator.SetBool("DrawW", _input.drawSword);
+        }
+
+        bool _hasSword;
+        private void CheckWeapon()
+        {
+            if(this.GetComponent<EquipmentSystem>().currentWeapon == this.GetComponent<EquipmentSystem>().weapon_1)
+            {
+                _hasSword = true;
+            }
+            else
+            {
+                _hasSword = false;
+            }
+        }
+
+        private void AttackSword()
+        {
+            if (_input.attack)
+            {
+                _animator.SetTrigger("_attack");
+                _animator.SetBool("hasSword", _hasSword);
+            }
+            else
+            {
+                _animator.ResetTrigger("_attack");
+                _animator.SetBool("hasSword", _hasSword);
+            }
+        }
+
+        public void takeDamage(int amount)
+        {
+            Health -= amount;
+            healthBar.setHealth(Health);
+            if (Health <= 0)
+            {
+                _animator.SetTrigger("ded");
+                GetComponent<Collider>().enabled = false;
+                //AudioSource.PlayClipAtPoint(DeathAudioClip, transform.position, DeathAudioVolume);
+            }
+            else
+            {
+                _animator.SetTrigger("damaged");
+            }
+        }
+
+        public void healPlayer()
+        {
+            Health = 100;
+            healthBar.setHealth(Health);
+        }
+
+        float dashSpeed = 65f;
+        float dashTimeOut = 3f;
+
+
+        private void Dash()
+        {
+            Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
+            if (!_hasSword)
+            {
+                if (_input.dash && _dashTimeoutDelta <= 0.0f)
+                {
+                    _controller.Move(targetDirection.normalized * (dashSpeed * Time.deltaTime));
+                    _dashTimeoutDelta = dashTimeOut;
+                }
+                if (_dashTimeoutDelta >= 0.0f)
+                {
+                    _dashTimeoutDelta -= Time.deltaTime;
+                }
+                
+            }
+        }
+
+        private void SwapW()
+        {
+            if (_input.swapWeapon)
+            {
+                _animator.SetTrigger("swap");
+            }
+            else
+            {
+                _animator.ResetTrigger("swap");
+            }
+        }
+
+        public void GameOver()
+        {
+            Time.timeScale = 0f;
+            SceneManager.LoadScene("GameOver");
+            //GameOverScript.GameOverScreen();
+            //Destroy(gameObject);
         }
 
         private void LateUpdate()

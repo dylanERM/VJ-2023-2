@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fffbaab6ebed6cf41b647c0b9c11ac35
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - arma: {instanceID: 0}
+  - currentWeaponUI: {fileID: -1683933582, guid: fbd486b2fa0a1aa47bdfe55833747be0,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
